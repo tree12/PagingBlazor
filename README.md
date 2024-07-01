@@ -1,5 +1,5 @@
 # PagingBlazor
-My inspiration of this project is from <a href="https://code-maze.com/blazor-webassembly-pagination/"> Here </a>
+My inspiration of this project is from <a target="_blank" href="https://code-maze.com/blazor-webassembly-pagination/"> Here </a>
 
 And then I implement with repository pattern(Most of my projects use this pattern) so I create this project to show how to use repository pattern with paging, it useful for my projects so I want to share to all.
 
