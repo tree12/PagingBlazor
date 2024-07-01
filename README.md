@@ -1,5 +1,6 @@
 # PagingBlazor
-My inspiration of this project is from https://code-maze.com/blazor-webassembly-pagination/ 
+My inspiration of this project is from <a href="https://code-maze.com/blazor-webassembly-pagination/"> Here </a>
+
 And then I implement with repository pattern(Most of my projects use this pattern) so I create this project to show how to use repository pattern with paging, it useful for my projects so I want to share to all.
 
 This project show how to retrieve tons of data. If we have a lot of data and we want to query all data to show in web at only one request, It can produce error or request time out.
@@ -36,6 +37,8 @@ I use NSwagStudio to generate the file to connect to web API from Blazor WebAsse
 
 ### Reference
 https://code-maze.com/blazor-webassembly-pagination/
+
 https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx
+
 https://learn.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 
