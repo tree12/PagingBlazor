@@ -27,7 +27,7 @@ After the database is created from this step. You have to see the tables **AddrI
 
 At this point, if you run the program I think you should see the data when you click **Address Info** menu like picture below.
 
-<img src="https://github.com/tree12/PagingBlazor/images/image1.jpg" width="300" title="hover text">
+<img src="https://github.com/tree12/PagingBlazor/blob/main/images/image1.png" width="80%" title="hover text">
 
 Everytime you click the page number It retrives the data in each page from the server.
 
