@@ -7,5 +7,5 @@
 /PagingBlazor.API/obj
 /PagingBlazor.Client/bin
 /PagingBlazor.Client/obj
-/PagingBlazor.Entities/bin/Debug/net8.0
+/PagingBlazor.Entities/bin
 /PagingBlazor.Entities/obj

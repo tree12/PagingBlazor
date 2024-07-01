@@ -1,0 +1,70 @@
+﻿@page "/addressInfo"
+@using PagingBlazor.Client.Models
+@using PagingBlazor.Client.Services.Generate
+@using PagingBlazor.Client.Services.Interfaces
+@inject IAddrInfoService addrInfoService
+<table class="table">
+    <thead>
+    <th>AddrId</th>
+    <th>ProvinceEng</th>
+    <th>DistrictEng</th>
+    <th>SubdisEng</th>
+    <th>Zip</th>
+    </thead>
+    <tbody>
+        @if (paginatedListViewModel != null && paginatedListViewModel.Entries != null && paginatedListViewModel.Entries.Any())
+        {
+            foreach (var item in paginatedListViewModel.Entries)
+            {
+                <tr>
+                    <td>@item.AddrId</td>
+                    <td>@item.ProvinceEng</td>
+                    <td>@item.DistrictEng</td>
+                    <td>@item.SubdisEng</td>
+                    <td>@item.Zip</td>
+                </tr>
+            
+            }
+           
+
+        }
+    </tbody>
+</table>
+
+
+<span style="font-size:small">@((MarkupString)pagingSummaryFormat)</span>
+<PagingBlazor.Client.Pages.Untility.Pagination MetaData="metaData" Spread="5" SelectedPage="SelectedPage" />
+@code {
+    public AddrInfoModelPaginatedListViewModel paginatedListViewModel { get; set; }
+    PageableInfo info = new PageableInfo() { PageNumber = 1, PageSize = 10 };
+    public MetaData metaData = new MetaData();
+    string pagingSummaryFormat = "";
+    public int totalCount = 0;
+    protected override async Task OnInitializedAsync()
+    {
+        paginatedListViewModel = await addrInfoService.GetAddrInfoModelAsync(info);
+        setMetaData();
+    }
+    async Task SelectedPage(int pageNumber)
+    {
+
+        info.PageNumber = pageNumber;
+
+        paginatedListViewModel = await addrInfoService.GetAddrInfoModelAsync(info);
+        pagingSummaryFormat = $"Displaying page {paginatedListViewModel.PageIndex} of {paginatedListViewModel.TotalPages} <b>(total {paginatedListViewModel.TotalRecords} records)</b>";
+
+        setMetaData();
+    }
+    void setMetaData()
+    {
+        if (paginatedListViewModel != null)
+        {
+            totalCount = paginatedListViewModel.TotalRecords;
+            metaData.CurrentPage = paginatedListViewModel.PageIndex;
+            metaData.TotalPages = paginatedListViewModel.TotalPages;
+            metaData.PageSize = info.PageSize;
+            metaData.TotalCount = paginatedListViewModel.TotalRecords;
+        }
+        StateHasChanged();
+    }
+}
